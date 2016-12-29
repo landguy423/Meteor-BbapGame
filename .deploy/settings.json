@@ -1,0 +1,24 @@
+{
+  "facebook": {
+    "appId": "1074072789305842",
+    "secret": "e916ed8adfacd35f954127a94451b1de"
+  },
+  "public": {
+    "gameSettings" : {
+      "nbrRound" : 12
+    },
+    "facebook": {
+      "permissions": [
+        "basic_info", 
+        "user_interests", 
+        "user_activities", 
+        "read_friendlists"
+      ],
+      "profileFields": [
+        "name",
+        "gender",
+        "location"
+      ]   
+    }
+  }
+}

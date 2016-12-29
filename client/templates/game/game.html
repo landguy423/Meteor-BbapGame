@@ -1,0 +1,139 @@
+<template name="Game">
+	<section id="game" class="fvp stripes">
+		<nav class="navbar">
+			<a href="/"><img src="/img/wss_b12-63.png" alt=""></a>
+			<h1>{{_ "juego nuevo"}}</h1>
+		</nav>
+
+		<div class="type">
+			<h2>{{_ "tipo de juego"}}</h2>
+			<div class="list row">
+		        <div class="circle column small-4">
+		        	<div class="select" data-type="1">
+		        		<img src="/img/wss_b12-01.png" alt="">
+		        	</div>
+		        	<span>{{_ "individual"}}</span>
+		        </div>
+		        <div class="circle column small-4">
+		        	<div class="select {{typeVs}}" data-type="2">
+		        		<img src="/img/wss_b12-02.png" alt="">
+		        	</div>
+		        	<span>{{_ "1vs1"}}</span>
+		        </div>
+		        <div class="circle column small-4">
+		        	<div class="select {{typeVsAll}}" data-type="3">
+		        		<img src="/img/wss_b12-03.png" alt="">
+		        	</div>
+		        	<span>{{_ "todos contra todos"}}</span>
+		        </div>
+		    </div>
+		</div>
+
+		{{#if gameType  }}
+		
+
+			<div class="vs">
+				<h2>{{_ "contrincantes"}}</h2>
+
+
+			{{#if vsFriends  }}
+
+
+			  <div class="row user-avatar-list align-center">
+
+		        <div class="column small-3 active">
+					<div>
+						<span class="avatar"><img src="/img/_Perfiles/1013625_10205373574875935_6632381779202297863_n.jpg" alt=""></span>
+						<span class="name">Yo</span>
+					</div>
+		        </div>
+
+		        {{#each friends}}
+
+		        <div class="column small-3">
+					<div>
+						<span class="avatar"><img src="/img/_Perfiles/{{avatar}}" alt=""></span>
+						<span class="name">{{firstName}}<br>{{lastName}}</span>
+					</div>
+		        </div>
+
+		        {{/each}}
+
+		      </div>
+			
+
+			{{else}}
+
+				<div class="list row align-center">
+			        <div class="circle column small-4">
+			        	<div class="select {{vsFriends}}" data-vs="1">
+			        		<img src="/img/wss_b12-04.png" alt="">
+			        	</div>
+			        	<span>{{_ "amigos"}}</span>
+			        </div>
+			        <div class="circle column small-4">
+			        	<div class="select" data-vs="2">
+			        		<img src="/img/wss_b12-05.png" alt="">
+			        	</div>
+			        	<span>{{_ "al azar"}}</span>
+			        </div>
+			    </div>
+
+			{{/if}}
+
+			</div>
+			
+		{{/if}}
+
+		<a data-start class="btn  {{gameReady}}">{{_ "empezar"}}</a>
+	</section>
+
+</template>
+
+
+
+<template name="GameFeed">
+	<section id="play" class="fvp">
+		<header>	
+			<div class="container">
+				<div class="info">
+					<div class="character {{gameObject.category.category}} {{gameObject.feed}}"></div>
+					<h1>{{gameObject.category.category}}</h1>
+
+					<div id="status">
+						<img src="{{gameObject.answerImg}}"/>
+					</div>
+				</div>
+
+				<div class="question">
+					<p>
+					{{gameObject.question.question}}
+					</p>
+				</div>
+			</div>
+		</header>
+		{{#unless gameObject.isTimeout}}
+		<div id="answer" class="{{gameObject.category.category}}">{{gameObject.question.correcta}}</div>
+		{{/unless}}
+		<h4>{{_ "que te parecio"}}</h4>
+
+		<div id="buttons">
+
+			<div class="center">
+				<a class="secondary" data-dislike><span>{{_ "aburrida"}}</span></a>
+				<a class="primary" data-like><span>{{_ "me gusta"}}</span></a>
+			</div>
+			
+			<ul class="subnav">
+				<li><a href="#">{{_ "reportar pregunta"}}</a></li>
+				<li><a href="#">{{_ "ver tu estado"}}</a></li>
+			</ul>
+
+			<a data-continue class="continue"><span>{{_ "Continue"}}</span></a>
+
+		</div>
+
+		
+	</section>
+
+</template>

@@ -1,0 +1,59 @@
+/*****************************************************************************/
+/* Ranking: Style */
+/*****************************************************************************/
+#ranking {
+
+	.padding{
+		overflow: hidden;
+		margin: 0;
+		padding: 4rem 5rem 0rem 5rem;
+		span{
+			color: #808080;
+			font-size: 2.5rem;
+			font-weight: 300;
+			font-family: 'signika_negativelight';
+		}
+	}
+
+	.corrects{
+		float: right;
+	}
+
+	 .ranking-list li{
+
+	 	overflow: visible;
+	 	margin: 2rem 4rem 0 4rem;
+	 	width: auto;
+
+	 	&:first-child .position{
+	    	background: #186671;
+	    }
+
+	 	.position{
+		    content: "";
+		    position: absolute;
+		    left: -4rem;
+		    top: 0;
+		    width: 8rem;
+		    height: 10rem;
+		    background: #3badbe;
+		    z-index: -1;
+		    text-align: center;
+		    padding-right: 4rem;
+		    line-height: 10rem;
+		    color: #fff;
+		    font-weight: 700;
+		    font-family: 'signika_negativebold';
+		    font-size: 2.5rem;
+	 	}
+
+	 	.user-name{
+		 	margin: 0;
+		 }
+
+		 .score{
+		 	right: 4rem;
+		 }
+	 }
+
+}

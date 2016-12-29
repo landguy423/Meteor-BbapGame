@@ -1,0 +1,1664 @@
+@import "{}/client/stylesheets/_variables.scss";
+
+
+@font-face {
+    font-family: 'signika_negative';
+    src: url('/fonts/signikanegative-bold-webfont.eot');
+    src: url('/fonts/signikanegative-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/signikanegative-bold-webfont.woff2') format('woff2'),
+         url('/fonts/signikanegative-bold-webfont.woff') format('woff'),
+         url('/fonts/signikanegative-bold-webfont.ttf') format('truetype'),
+         url('/fonts/signikanegative-bold-webfont.svg#signika_negativebold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'signika_negative';
+    src: url('/fonts/signikanegative-light-webfont.eot');
+    src: url('/fonts/signikanegative-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/signikanegative-light-webfont.woff2') format('woff2'),
+         url('/fonts/signikanegative-light-webfont.woff') format('woff'),
+         url('/fonts/signikanegative-light-webfont.ttf') format('truetype'),
+         url('/fonts/signikanegative-light-webfont.svg#signika_negativelight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'signika_negative';
+    src: url('/fonts/signikanegative-regular-webfont.eot');
+    src: url('/fonts/signikanegative-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/signikanegative-regular-webfont.woff2') format('woff2'),
+         url('/fonts/signikanegative-regular-webfont.woff') format('woff'),
+         url('/fonts/signikanegative-regular-webfont.ttf') format('truetype'),
+         url('/fonts/signikanegative-regular-webfont.svg#signika_negativeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'signika_negative';
+    src: url('/fonts/signikanegative-semibold-webfont.eot');
+    src: url('/fonts/signikanegative-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/signikanegative-semibold-webfont.woff2') format('woff2'),
+         url('/fonts/signikanegative-semibold-webfont.woff') format('woff'),
+         url('/fonts/signikanegative-semibold-webfont.ttf') format('truetype'),
+         url('/fonts/signikanegative-semibold-webfont.svg#signika_negativesemibold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+
+
+
+html{
+	box-sizing: border-box;
+	font-size: 62.5%;
+    height: 100%;
+}
+
+body{
+	font-family: 'signika_negative';
+	font-weight: 400;
+	font-size: 1.4rem;
+    height: 100%;
+    overflow: auto;
+    -webkit-font-smoothing: auto;
+}
+body.grey-bg {
+    background: #808080;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+    outline: 0px none;
+}
+
+.relative{
+    position: relative
+}
+
+.content{
+    position: absolute;
+    top: 0;
+    bottom:0;
+    z-index: 1;
+    width: 100%;
+    overflow: auto;
+}
+
+
+.content-nav{
+    z-index: 1;
+    width: 100%;
+    overflow: auto;
+    padding-bottom: 6rem;
+    height: 100%;
+}
+
+
+.fvp{
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.search{
+
+    background: #808080;
+    // margin-top: 4rem;
+    height: 8rem;
+    overflow: hidden;
+    
+    .input{
+        width: 48%;
+        height: 4.5rem;
+        margin: 1.75rem auto 0 auto;
+        background: #fff;
+        border-radius: 2.25rem;
+        position: relative;
+        padding: 0 12% 0 8%;
+
+        input{  
+
+            &::placeholder{
+                color: #808080;
+            }
+
+            width: 100%;
+            display: block; 
+            color: #808080;
+            font-size: 2.5rem;
+            font-weight: 600;
+            height: 4.5rem;
+            line-height: 4.5rem;
+            background: none;
+            border: 0px none;
+        }
+
+        a{
+            display: block;
+            position: absolute;
+            right: 17%;
+            top: 50%;
+            height: 2.3rem;
+            width: 2.1rem;
+            margin-top: -1.15rem;
+            background: url(/img/wss_search.png) no-repeat scroll 0 0 transparent;
+            background-size: 100% 100%;
+        }
+    }
+
+}
+
+
+
+.modal {
+    position: fixed;
+    display: none;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 9999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    &-wrapper {
+        position: relative;
+        height: 100%;
+    }
+    &-content {
+        position: absolute;
+        width: 80%;
+        padding: 20px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #FFF;
+        text-align: center;
+        font-size: 6rem;
+        border-radius: 1rem;
+        color: $default-color;
+        .top-message {
+            font-size: 3rem;
+            color: #808080;
+            margin-bottom: 1rem;
+        }
+        img {
+            display: inline-block;
+            height: 10rem;
+        }
+    }
+    &.open {
+       display: block; 
+    }
+}
+
+
+.user-avatar-list{
+    padding-bottom: 2rem;
+    
+    a{
+        padding: 2rem 2rem 0 2rem;
+        display: block;
+        position: relative;
+        text-decoration: none;
+
+    }
+
+    .column{
+        padding: 0;
+    }
+
+
+    .avatar{
+
+        position: relative;
+        width: 100%;
+        padding-bottom: calc(100% - 4px);
+        border-radius: 50%;
+        display: block;
+        border: 2px solid #f2f2f2;
+        overflow: hidden;
+
+        img{
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: auto;
+            min-height: 100%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+    }
+
+    .name{
+        font-size: 1.8rem;
+        color: #808080;
+        line-height: 1;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        margin-top: 0.7rem;
+    }
+
+}
+
+// Buttons
+
+.button {
+    // Button default color
+    padding: 2.3rem 4.5rem;
+    display: inline-block;
+    border-radius: 6rem;
+    background: #3dd1b9;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 3.5rem;
+    color: #fff;
+    border: 0;
+}
+
+
+.navbar-nav{
+	padding:0;
+	margin:0;
+    position: fixed;
+    bottom:0;
+    left: 0;
+    width: 100%;
+    height: 6rem;
+	background:#666;
+    z-index: 100;
+
+	li{
+		list-style:none;
+		display:block;
+        border-right: 1px solid #808080;
+        position: relative;
+        
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        svg{
+            width: 3rem;
+            height: 3rem;
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 50%;
+            margin-top: -1.5rem;
+            margin-left: -1.5rem;
+            z-index: 1;
+
+        }
+	}
+    li:last-child{
+        border:0px none;
+    }
+    li.active{
+        svg path {
+            fill: #fff;
+        }
+    }
+}
+
+.stripes{
+
+    background: repeating-linear-gradient(
+      -45deg,
+      #3badbe,
+      #3badbe 5rem,
+      #186671 5rem,
+      #186671 10rem
+    );
+
+}
+
+.padding{
+    padding: 0 2rem;
+}
+
+.game-list, .chat-list, .user-list, .ranking-list{
+    margin: 0;
+    padding: 0;
+
+    li{
+        margin-top: 2rem;
+        background: #f2f2f2;
+        display: block;
+        width: 100%;
+        height: 10rem;
+        border-radius: 5rem;
+        position: relative;
+
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .avatar{
+            position: absolute;
+            z-index: 1;
+            left: 0.8rem;
+            top: 0.8rem;
+            width: 8.4rem;
+            height: 8.4rem;
+            overflow: hidden;
+            border-radius: 50%;
+
+            img{
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 100%;
+                height: auto;
+                min-height: 100%;
+                transform: translateY(-50%);
+                z-index: 1;
+            }
+        }
+
+        .country{
+            position: absolute;
+            z-index: 1;
+            right: 0.8rem;
+            top: 0.8rem;
+            width: 8.4rem;
+            height: 8.4rem;
+            overflow: hidden;
+            border-radius: 50%;
+
+            img{
+                display: block;
+                position: absolute;
+                left: 50%;
+                top: 0;
+                height: 100%;
+                width: auto;
+                transform: translateX(-50%);
+                z-index: 1;
+            }
+        }
+
+        .score{
+            position: absolute;
+            right: 12rem;
+            z-index: 1;
+            color: #666666;
+            font-size: 3rem;
+            line-height: 1;
+            display: block;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .info{
+            position: absolute;
+            left: 10rem;
+            z-index: 1;
+            color: #666666;
+            font-size: 3rem;
+            line-height: 1;
+            top: 50%;
+            transform: translateY(-50%);
+
+            .user-name{
+                color: #808080;
+                font-size: 2.5rem;
+                line-height: 1;
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+            .status{
+                font-size: 2rem;
+                color: #666666;
+                font-weight: 300;
+                line-height: 1;
+                display: block;
+            }
+        }
+    }
+}
+
+.navbar{
+    position: relative;
+    padding: 0 5rem;
+    margin: 2rem 0;
+    overflow: hidden;
+    
+    &.white h1{
+        color: #4d4d4d;
+    }
+
+    &.perfil{
+        margin: 0;
+        // padding: 4rem 0 15rem 0;
+    }
+
+    &.large{
+        padding-right: 0;
+        h1{
+            font-size: 4.5rem;
+        }
+    }
+
+    &.border{
+        overflow: visible;
+        &::before{
+            position: absolute;
+            bottom: -2rem;
+            content:"";
+            height: 1px;
+            left: 2rem;
+            right: 2rem;
+            border-bottom:1px solid #808080;
+        } 
+
+    }
+
+    h1{
+        color: #fff;
+        font-weight: 400;
+        font-size: 5rem;
+        display: block;
+        text-align: center;
+        margin: 0;
+        line-height: 1;
+
+    }
+
+    a{
+        position: absolute;
+        left: 6rem;
+        height: 100%;
+        display: block;
+        transform: translateX(-100%);
+        z-index: 1;
+
+        img{
+            height: 100%;
+            width:auto;
+        }
+    }
+}
+
+header.fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 98;
+    
+    &.white{
+        background: #fff;
+    }
+}
+
+.text-center{
+    text-align: center
+}
+
+.menu-list{
+    margin: 0;
+    padding: 0;
+
+
+    &.small{
+        padding: 0 0.5rem;
+
+        li{
+            height: 9rem;
+
+            .menu{
+                left: 0;
+            }
+            &:last-child{
+                border-bottom: 1px solid #f2f2f2;
+            }
+        }
+    }
+
+    li{
+        display: block;
+        list-style: none;
+        height: 6em;
+        line-height: 6em;
+        border-bottom: 1px solid #f2f2f2;
+        overflow: hidden;
+        background: url(/img/menu-item.png) no-repeat scroll right center;
+        background-size: 2.1rem 2.3rem;
+        position: relative;
+        a{
+            display: block;
+            width: 100%;
+            padding-left: 4em;
+        }
+
+        &:last-child{
+            border:0px none;
+        }
+
+        .icon{
+            border-radius: 50%;
+            overflow: hidden;
+            height: 4em;
+            width: 4em;
+            border:1px solid #f2f2f2;
+            display: inline-block;
+            background:no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: 50%;
+            left: 0px;
+            transform: translateY(-50%);
+
+            &.ayuda{
+                background-image: url(/img/wss_b12-24.png);
+            }
+
+            &.categorias{
+                background-image: url(/img/wss_b12-25.png);
+            }
+
+            &.twitter{
+                background-image: url(/img/wss_b12-26.png);
+            }
+
+            &.facebook{
+                background-image: url(/img/wss_b12-27.png);
+            }
+
+            &.mensajes{
+                background-image: url(/img/wss_b12-28.png);
+            }
+
+            &.sugerir{
+                background-image: url(/img/wss_b12-29.png);
+            }
+
+            &.cupones{
+                background-image: url(/img/wss_b12-30.png);
+            }
+
+            &.tienda{
+                background-image: url(/img/wss_b12-31.png);
+            }
+
+            &.preferencias{
+                background-image: url(/img/wss_b12-32.png);
+            }
+
+            &.perfil{
+                background-image: url(/img/wss_b12-33.png);
+            }
+
+            &.rendimiento{
+                background-image: url(/img/wss_b12-34.png);
+            }
+
+            &.nacionalidad{
+                background-image: url(/img/wss_b12-35.png);
+            }
+
+            &.cuenta{
+                background-image: url(/img/wss_b12-36.png);
+            }
+        }
+
+        .line{
+            color: #666666;
+            font-size: 3.5rem;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 2rem;
+            margin-top: 0;
+        }
+        .icon + .line {
+            margin-top: 0rem;
+        }
+    }
+}
+
+.cat1{
+    background: #00ae8d !important;
+}
+.cat2{
+    background: #ff725c !important;
+}
+.cat3{
+    background: #014976 !important;
+}
+.cat4{
+    background: #ffcd41 !important;
+}
+.cat5{
+    background: #9947c5 !important;
+}
+.eritrea{
+    background-image: url(/img/Flags/eritrea.png);
+}
+.espana{
+    background-image: url(/img/Flags/espana.png);
+}
+.estonia{
+    background-image: url(/img/Flags/estonia.png);
+}
+.ethipia{
+    background-image: url(/img/Flags/ethipia.png);
+}
+.european-union{
+    background-image: url(/img/Flags/european_union.png);
+}
+.faroe-islands{
+    background-image: url(/img/Flags/faroe_islands.png);
+}
+.fiji{
+    background-image: url(/img/Flags/fiji.png);
+}
+.finland{
+    background-image: url(/img/Flags/finland.png);
+}
+.france{
+    background-image: url(/img/Flags/france.png);
+}
+.gabon{
+    background-image: url(/img/Flags/gabon.png);
+}
+.georgia{
+    background-image: url(/img/Flags/georgia.png);
+}
+.germany{
+    background-image: url(/img/Flags/germany.png);
+}
+.ghana{
+    background-image: url(/img/Flags/ghana.png);
+}
+.gibraltar{
+    background-image: url(/img/Flags/gibraltar.png);
+}
+.greece{
+    background-image: url(/img/Flags/greece.png);
+}
+.greenland{
+    background-image: url(/img/Flags/greenland.png);
+}
+.grenada{
+    background-image: url(/img/Flags/grenada.png);
+}
+.guatemala{
+    background-image: url(/img/Flags/guatemala.png);
+}
+.guinea{
+    background-image: url(/img/Flags/guinea.png);
+}
+.guinea-bissau{
+    background-image: url(/img/Flags/guinea-bissau.png);
+}
+.guyana{
+    background-image: url(/img/Flags/guyana.png);
+}
+.haiti{
+    background-image: url(/img/Flags/haiti.png);
+}
+.honduras{
+    background-image: url(/img/Flags/honduras.png);
+}
+.hong-kong{
+    background-image: url(/img/Flags/hong_kong.png);
+}
+.hungary{
+    background-image: url(/img/Flags/hungary.png);
+}
+.iceland{
+    background-image: url(/img/Flags/iceland.png);
+}
+.india{
+    background-image: url(/img/Flags/india.png);
+}
+.indonesia{
+    background-image: url(/img/Flags/indonesia.png);
+}
+.iran{
+    background-image: url(/img/Flags/iran.png);
+}
+.iraq{
+    background-image: url(/img/Flags/iraq.png);
+}
+.ireland{
+    background-image: url(/img/Flags/ireland.png);
+}
+.israel{
+    background-image: url(/img/Flags/israel.png);
+}
+.italy{
+    background-image: url(/img/Flags/italy.png);
+}
+.jamaica{
+    background-image: url(/img/Flags/jamaica.png);
+}
+.japan{
+    background-image: url(/img/Flags/japan.png);
+}
+.jordan{
+    background-image: url(/img/Flags/jordan.png);
+}
+.kazakhstan{
+    background-image: url(/img/Flags/kazakhstan.png);
+}
+.kenya{
+    background-image: url(/img/Flags/kenya.png);
+}
+.kiribati{
+    background-image: url(/img/Flags/kiribati.png);
+}
+.kuwait{
+    background-image: url(/img/Flags/kuwait.png);
+}
+.kyrgyzstan{
+    background-image: url(/img/Flags/kyrgyzstan.png);
+}
+.laos{
+    background-image: url(/img/Flags/laos.png);
+}
+.latvia{
+    background-image: url(/img/Flags/latvia.png);
+}
+.lebanon{
+    background-image: url(/img/Flags/lebanon.png);
+}
+.lesotho{
+    background-image: url(/img/Flags/lesotho.png);
+}
+.liberia{
+    background-image: url(/img/Flags/liberia.png);
+}
+.liechtenstein{
+    background-image: url(/img/Flags/liechtenstein.png);
+}
+.lithuania{
+    background-image: url(/img/Flags/lithuania.png);
+}
+.luxemburg{
+    background-image: url(/img/Flags/luxemburg.png);
+}
+.lybia{
+    background-image: url(/img/Flags/lybia.png);
+}
+.macau{
+    background-image: url(/img/Flags/macau.png);
+}
+.macedonia{
+    background-image: url(/img/Flags/macedonia.png);
+}
+.madagascar{
+    background-image: url(/img/Flags/madagascar.png);
+}
+.malawi{
+    background-image: url(/img/Flags/malawi.png);
+}
+.malaysia{
+    background-image: url(/img/Flags/malaysia.png);
+}
+.maldives{
+    background-image: url(/img/Flags/maldives.png);
+}
+.mali{
+    background-image: url(/img/Flags/mali.png);
+}
+.malta{
+    background-image: url(/img/Flags/malta.png);
+}
+.marshall-islands{
+    background-image: url(/img/Flags/marshall_islands.png);
+}
+.mauritania{
+    background-image: url(/img/Flags/mauritania.png);
+}
+.mauritius{
+    background-image: url(/img/Flags/mauritius.png);
+}
+.mexico{
+    background-image: url(/img/Flags/mexico.png);
+}
+.micronesia{
+    background-image: url(/img/Flags/micronesia.png);
+}
+.moldova{
+    background-image: url(/img/Flags/moldova.png);
+}
+.monaco{
+    background-image: url(/img/Flags/monaco.png);
+}
+.mongolia{
+    background-image: url(/img/Flags/mongolia.png);
+}
+.montenegro{
+    background-image: url(/img/Flags/montenegro.png);
+}
+.morocco{
+    background-image: url(/img/Flags/morocco.png);
+}
+.mozambique{
+    background-image: url(/img/Flags/mozambique.png);
+}
+.myanmar{
+    background-image: url(/img/Flags/myanmar.png);
+}
+.namibia{
+    background-image: url(/img/Flags/namibia.png);
+}
+.nauru{
+    background-image: url(/img/Flags/nauru.png);
+}
+.nepal{
+    background-image: url(/img/Flags/nepal.png);
+}
+.netherlands{
+    background-image: url(/img/Flags/netherlands.png);
+}
+.new-zeland{
+    background-image: url(/img/Flags/new_zeland.png);
+}
+.nicaragua{
+    background-image: url(/img/Flags/nicaragua.png);
+}
+.niger{
+    background-image: url(/img/Flags/niger.png);
+}
+.nigeria{
+    background-image: url(/img/Flags/nigeria.png);
+}
+.north-korea{
+    background-image: url(/img/Flags/north_korea.png);
+}
+.northern-ireland{
+    background-image: url(/img/Flags/northern_ireland.png);
+}
+.norway{
+    background-image: url(/img/Flags/norway.png);
+}
+.oman{
+    background-image: url(/img/Flags/oman.png);
+}
+.pakistan{
+    background-image: url(/img/Flags/pakistan.png);
+}
+.palau{
+    background-image: url(/img/Flags/palau.png);
+}
+.palestine{
+    background-image: url(/img/Flags/palestine.png);
+}
+.panama{
+    background-image: url(/img/Flags/panama.png);
+}
+.papua-new-guinea{
+    background-image: url(/img/Flags/papua_new_guinea.png);
+}
+.paraguay{
+    background-image: url(/img/Flags/paraguay.png);
+}
+.peru{
+    background-image: url(/img/Flags/peru.png);
+}
+.philippines{
+    background-image: url(/img/Flags/philippines.png);
+}
+.poland{
+    background-image: url(/img/Flags/poland.png);
+}
+.portugal{
+    background-image: url(/img/Flags/portugal.png);
+}
+.puerto-rico{
+    background-image: url(/img/Flags/puerto_rico.png);
+}
+.quatar{
+    background-image: url(/img/Flags/quatar.png);
+}
+.romania{
+    background-image: url(/img/Flags/romania.png);
+}
+.rot-congo{
+    background-image: url(/img/Flags/rot_congo.png);
+}
+.russia{
+    background-image: url(/img/Flags/russia.png);
+}
+.rwanda{
+    background-image: url(/img/Flags/rwanda.png);
+}
+.saint-kitts-and-nevis{
+    background-image: url(/img/Flags/saint_kitts_and_nevis.png);
+}
+.saint-vicent-and-the-grenadines{
+    background-image: url(/img/Flags/saint_vicent_and_the_grenadines.png);
+}
+.saitn-lucia{
+    background-image: url(/img/Flags/saitn_lucia.png);
+}
+.samoa{
+    background-image: url(/img/Flags/samoa.png);
+}
+.san-marino{
+    background-image: url(/img/Flags/san_marino.png);
+}
+.sao-tome-and-principe{
+    background-image: url(/img/Flags/sao_tome_and_principe.png);
+}
+.saudi-arabia{
+    background-image: url(/img/Flags/saudi_arabia.png);
+}
+.scotland{
+    background-image: url(/img/Flags/scotland.png);
+}
+.senegal{
+    background-image: url(/img/Flags/senegal.png);
+}
+.serbia{
+    background-image: url(/img/Flags/serbia.png);
+}
+.seychelles{
+    background-image: url(/img/Flags/seychelles.png);
+}
+.sierra-leone{
+    background-image: url(/img/Flags/sierra_leone.png);
+}
+.singapore{
+    background-image: url(/img/Flags/singapore.png);
+}
+.slovakia{
+    background-image: url(/img/Flags/slovakia.png);
+}
+.slovenia{
+    background-image: url(/img/Flags/slovenia.png);
+}
+.solomon-islands{
+    background-image: url(/img/Flags/solomon_islands.png);
+}
+.somalia{
+    background-image: url(/img/Flags/somalia.png);
+}
+.south-africa{
+    background-image: url(/img/Flags/south_africa.png);
+}
+.south-korea{
+    background-image: url(/img/Flags/south_korea.png);
+}
+.sri-lanka{
+    background-image: url(/img/Flags/sri_lanka.png);
+}
+.sudan{
+    background-image: url(/img/Flags/sudan.png);
+}
+.suriname{
+    background-image: url(/img/Flags/suriname.png);
+}
+.swaziland{
+    background-image: url(/img/Flags/swaziland.png);
+}
+.sweden{
+    background-image: url(/img/Flags/sweden.png);
+}
+.switzerland{
+    background-image: url(/img/Flags/switzerland.png);
+}
+.syria{
+    background-image: url(/img/Flags/syria.png);
+}
+.tajikistan{
+    background-image: url(/img/Flags/tajikistan.png);
+}
+.tanzania{
+    background-image: url(/img/Flags/tanzania.png);
+}
+.thailand{
+    background-image: url(/img/Flags/thailand.png);
+}
+.the-bahamas{
+    background-image: url(/img/Flags/the_bahamas.png);
+}
+.the-gambia{
+    background-image: url(/img/Flags/the_gambia.png);
+}
+.timor-leste{
+    background-image: url(/img/Flags/timor-leste.png);
+}
+.togo{
+    background-image: url(/img/Flags/togo.png);
+}
+.tonga{
+    background-image: url(/img/Flags/tonga.png);
+}
+.trinidad{
+    background-image: url(/img/Flags/trinidad.png);
+}
+.tunisia-and-tobago{
+    background-image: url(/img/Flags/tunisia_and_tobago.png);
+}
+.turkey{
+    background-image: url(/img/Flags/turkey.png);
+}
+.turkmenistan{
+    background-image: url(/img/Flags/turkmenistan.png);
+}
+.tuvalu{
+    background-image: url(/img/Flags/tuvalu.png);
+}
+.uganda{
+    background-image: url(/img/Flags/uganda.png);
+}
+.ukraine{
+    background-image: url(/img/Flags/ukraine.png);
+}
+.united-arab-emirates{
+    background-image: url(/img/Flags/united_arab_emirates.png);
+}
+.united-kingdom{
+    background-image: url(/img/Flags/united_kingdom.png);
+}
+.united-states-of-america{
+    background-image: url(/img/Flags/united_states_of_america.png);
+}
+.uruguay{
+    background-image: url(/img/Flags/uruguay.png);
+}
+.uzbekistan{
+    background-image: url(/img/Flags/uzbekistan.png);
+}
+.vanatu{
+    background-image: url(/img/Flags/vanatu.png);
+}
+.vatican-city{
+    background-image: url(/img/Flags/vatican_city.png);
+}
+.venezuela{
+    background-image: url(/img/Flags/venezuela.png);
+}
+.vietnam{
+    background-image: url(/img/Flags/vietnam.png);
+}
+.wales{
+    background-image: url(/img/Flags/wales.png);
+}
+.western-sahara{
+    background-image: url(/img/Flags/western_sahara.png);
+}
+.yemen{
+    background-image: url(/img/Flags/yemen.png);
+}
+.zambia{
+    background-image: url(/img/Flags/zambia.png);
+}
+.zimbabew{
+    background-image: url(/img/Flags/zimbabew.png);
+}
+.afghanistan{
+    background-image: url(/img/Flags/afghanistan.png);
+}
+.albania{
+    background-image: url(/img/Flags/albania.png);
+}
+.algeria{
+    background-image: url(/img/Flags/algeria.png);
+}
+.andorra{
+    background-image: url(/img/Flags/andorra.png);
+}
+.angola{
+    background-image: url(/img/Flags/angola.png);
+}
+.antartica{
+    background-image: url(/img/Flags/antartica.png);
+}
+.antigua-and-barbuda{
+    background-image: url(/img/Flags/antigua_and_barbuda.png);
+}
+.argentina{
+    background-image: url(/img/Flags/argentina.png);
+}
+.armenia{
+    background-image: url(/img/Flags/armenia.png);
+}
+.aruba{
+    background-image: url(/img/Flags/aruba.png);
+}
+.australia{
+    background-image: url(/img/Flags/australia.png);
+}
+.austria{
+    background-image: url(/img/Flags/austria.png);
+}
+.azerbaijan{
+    background-image: url(/img/Flags/azerbaijan.png);
+}
+.bahrain{
+    background-image: url(/img/Flags/bahrain.png);
+}
+.bangladesh{
+    background-image: url(/img/Flags/bangladesh.png);
+}
+.barbados{
+    background-image: url(/img/Flags/barbados.png);
+}
+.belarus{
+    background-image: url(/img/Flags/belarus.png);
+}
+.belgium{
+    background-image: url(/img/Flags/belgium.png);
+}
+.belize{
+    background-image: url(/img/Flags/belize.png);
+}
+.benin{
+    background-image: url(/img/Flags/benin.png);
+}
+.bhutan{
+    background-image: url(/img/Flags/bhutan.png);
+}
+.bolivia{
+    background-image: url(/img/Flags/bolivia.png);
+}
+.bosnia-and-herzegovina{
+    background-image: url(/img/Flags/bosnia_and_herzegovina.png);
+}
+.botswana{
+    background-image: url(/img/Flags/botswana.png);
+}
+.brasil{
+    background-image: url(/img/Flags/brasil.png);
+}
+.brunei{
+    background-image: url(/img/Flags/brunei.png);
+}
+.bulgaria{
+    background-image: url(/img/Flags/bulgaria.png);
+}
+.burkina-faso{
+    background-image: url(/img/Flags/burkina_faso.png);
+}
+.burundi{
+    background-image: url(/img/Flags/burundi.png);
+}
+.cambodia{
+    background-image: url(/img/Flags/cambodia.png);
+}
+.cameroon{
+    background-image: url(/img/Flags/cameroon.png);
+}
+.canada{
+    background-image: url(/img/Flags/canada.png);
+}
+.cape-verde{
+    background-image: url(/img/Flags/cape_verde.png);
+}
+.catalonia{
+    background-image: url(/img/Flags/catalonia.png);
+}
+.central-african-republic{
+    background-image: url(/img/Flags/central_african_republic.png);
+}
+.chad{
+    background-image: url(/img/Flags/chad.png);
+}
+.chile{
+    background-image: url(/img/Flags/chile.png);
+}
+.china{
+    background-image: url(/img/Flags/china.png);
+}
+.chipre{
+    background-image: url(/img/Flags/chipre.png);
+}
+.colombia{
+    background-image: url(/img/Flags/colombia.png);
+}
+.comoros{
+    background-image: url(/img/Flags/comoros.png);
+}
+.costa-rica{
+    background-image: url(/img/Flags/costa_rica.png);
+}
+.cote-divoire{
+    background-image: url(/img/Flags/cote_divoire.png);
+}
+.croatia{
+    background-image: url(/img/Flags/croatia.png);
+}
+.cuba{
+    background-image: url(/img/Flags/cuba.png);
+}
+.czech-republic{
+    background-image: url(/img/Flags/czech_republic.png);
+}
+.denmark{
+    background-image: url(/img/Flags/denmark.png);
+}
+.djibouti{
+    background-image: url(/img/Flags/djibouti.png);
+}
+.dominica{
+    background-image: url(/img/Flags/dominica.png);
+}
+.dominican-republic{
+    background-image: url(/img/Flags/dominican_republic.png);
+}
+.drot-congo{
+    background-image: url(/img/Flags/drot_congo.png);
+}
+.ecuador{
+    background-image: url(/img/Flags/ecuador.png);
+}
+.egypt{
+    background-image: url(/img/Flags/egypt.png);
+}
+.el-salvador{
+    background-image: url(/img/Flags/el_salvador.png);
+}
+.england{
+    background-image: url(/img/Flags/england.png);
+}
+.equatorial-guinea{
+    background-image: url(/img/Flags/equatorial_guinea.png);
+}
+
+
+/* Slick */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+    display: block;
+    height: 4rem;
+    width: 2.1rem;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+    top: 50%;
+    margin-top: -2rem;
+    padding: 0;
+    border: none;
+    outline: none;
+
+}
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.dragging {
+        cursor: pointer;
+        cursor: hand;
+    }
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+}
+.slick-slide {
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    [dir="rtl"] & {
+        float: right;
+    }
+    img {
+        display: block;
+    }
+    &.slick-loading img {
+        display: none;
+    }
+
+    display: none;
+
+    &.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized & {
+        display: block;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+
+    .slick-vertical & {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+.slick-prev {
+    left: 1rem;
+    background: url(/img/wss_b12-63b.png) no-repeat scroll 0 0 transparent;
+    background-size: 100% 100%;
+}
+
+.slick-next {
+    right: 1rem;
+    background: url(/img/wss_b12-63right.png) no-repeat scroll 0 0 transparent;
+    background-size: 100% 100%;
+}
+
+
+form.form1{
+
+    p.info{
+        padding: 4rem;
+        color: #4d4d4d;
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+
+    h3.header{
+        font-size: 3.5rem;
+        line-height: 6.5rem;
+        display: block;
+        height: 6.5rem;
+        color: #fff;
+        padding-left: 4rem;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .custom-select{
+        height: 8rem;
+        width: 100%;
+        position: relative;
+        overflow: visible;
+
+        .selection{
+            font-size: 2.5rem;
+            color: #808080;
+            line-height: 8rem;
+            display: block;
+            height: 100%;
+        }
+
+        .options{
+            position: absolute;
+            width: 100%;
+            background: #808080;
+            margin: 0;
+            padding: 0;
+            left: -2rem;
+            bottom: 0;
+            transform: translateY(100%);
+            z-index: 10;
+
+            li{
+                list-style:none;
+                display: block;
+                margin: 0;
+                color: #fff;
+                font-size: 2.5rem;
+                padding: 2rem 2.5rem;
+                border-bottom: 1px solid #f2f2f2;
+
+                &:last-child{
+                    border: 0px none;
+                }
+            }
+        }
+
+        .select{
+            right: 3rem;
+            width: 5rem;
+            height: 5rem;
+            top: 1.5rem;
+            display: block;
+            border-radius: 50%;
+            border: 2px solid #808080;
+            background: url(/img/select.png) no-repeat scroll center center transparent;
+            background-size: 40%;
+            position: absolute;
+        }
+    }
+
+    .save{
+        background: #808080 !important;
+        padding: 9rem 0 !important;
+        text-align: center;
+
+        button{
+            padding: 4rem 5.5rem;
+            display: inline-block;
+            line-height: 1;
+            border: 0px none;
+            border-radius: 6rem;
+            background: $default-title-color;
+            width: auto;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 3.5rem;
+            color: #fff;
+            margin-top: 5rem;
+        }
+    }
+
+    .row{
+        .columns{
+            border-bottom: 0.2rem solid #fff;
+            padding: 0 2rem;
+            background: #f2f2f2;
+
+            &.incorrecta{
+                background: #d60057;
+                input{
+                    color: #fff;
+                }
+            }
+
+            &.correcta{
+                background: #00ae8d;
+                input{
+                    color: #fff;
+                }
+            }
+
+            &:first-child{
+                position: relative;
+                padding-right: 0;
+                background: #fff;
+                border-bottom: 0.2rem solid #f2f2f2;
+            }           
+
+            label{
+                font-size: 2.5rem;
+                color: #4d4d4d;
+                line-height: 1;
+                display: block;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                position: absolute;
+                left: 4rem;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 1;
+                width: calc(100% - 4rem);
+                &.top{
+                    top: 2rem;
+                    transform: none;
+                }
+            }
+
+            input{
+                background: none;
+                border: 0px none;
+                width: 100%;
+                color: #808080;
+                line-height: 8rem;
+                display: block;
+                height: 8rem;
+                font-size: 2.5rem;
+            }
+
+            textarea{
+                background: none;
+                border: 0px none;
+                width: 100%;
+                padding: 2rem 0;
+                height: 18rem;
+                color: #808080;
+                line-height: 1.2;
+                display: block;
+                resize:none;
+                font-size: 2.5rem;
+            }
+        }
+
+        &.last .columns{
+            border: 0px none;
+        }
+    }
+
+    .avatar{
+
+        position: relative;
+        width: 80%;
+        padding-bottom: 80%;
+        border-radius: 50%;
+        display: block;
+        overflow: hidden;
+
+        img{
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: auto;
+            min-height: 100%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+    }
+
+    .name{
+        font-size: 2.5rem;
+        color: #4d4d4d;
+        line-height: 1;
+        display: block;
+        margin-top: 1rem;
+    }
+
+
+    .facebook{
+        padding: 2rem 0;
+        .columns {
+            background: #fff !important;
+        }
+    }
+
+    a{
+        background: #d60057;
+        display: inline-block;
+        width: auto;
+        height: 5rem;
+        line-height: 5rem;
+        margin-top: 1.5rem;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        padding: 0 4rem;
+        border-radius: 2.5rem;
+        font-size: 2.5rem;
+        font-weight: 300;
+    }
+}
+
+.ohidden{
+    overflow: hidden;
+}
+
+// .columns {
+//     flex-grow: 1;
+//     flex-shrink: 0;
+// }

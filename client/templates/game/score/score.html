@@ -1,0 +1,22 @@
+
+<template name="GameScore">
+	<section id="score" class="fvp score{{level}}">
+		<h1>{{_ "buenisimo"}}</h1>
+		<p>{{_ "pasaste  nivel"}}</p>
+
+		<div class="rank">
+			<span class="sign"></span>
+			<h3>{{getLevel level}}</h3>
+			<!-- <a href="" class="moreInfo">{{_ "mas informacion"}}</a> -->
+		</div>
+
+		<div class="buttons">
+			<!-- <a href="#" class="secondary">{{_ "mi estado"}}</a> -->
+			<!-- <a href="#" class="primary">{{_ "compartir"}}</a> -->
+			<a href="#" class="continue">{{_ "continuar"}}</a>
+		</div>
+
+
+	</section>
+
+</template>

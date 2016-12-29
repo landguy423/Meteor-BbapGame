@@ -1,0 +1,34 @@
+
+<template name="ChatRoom">
+	<section id="chat" class="fvp fixed">
+		<header>
+			<nav class="navbar white border">
+				<a data-action="back"><img src="/img/wss_b12-63b.png" alt=""></a>
+				<h1>{{friend.services.facebook.first_name}} {{friend.services.facebook.last_name}}</h1>
+			</nav>
+		</header>
+
+		<ul class="conversation">
+			{{#each message in messages}}
+			<li class="{{sent message}}">
+				<div class="avatar">
+					{{#with getUser message}}
+					<img src="{{userAvatar services.facebook.id}}  " alt="">
+					{{/with}}
+				</div>
+				<div class="chat">
+					<p>{{breaklines message.message}}</p>
+				</div>
+				<span class="date">{{parseDate message.createdAt}}</span>
+			</li>
+			{{/each}}
+
+		</ul>
+
+		<div class="write">
+			<input type="text" id="msj" placeholder="{{_ "escribe mensaje"}}">
+			<a data-send></a>
+		</div>
+
+	</section>
+</template>

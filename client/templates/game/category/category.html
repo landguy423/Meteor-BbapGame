@@ -1,0 +1,35 @@
+<template name="GameCategory">
+	<section id="gameCategory" class="fvp {{gameObject.category.color}}">
+		<header>		
+			<h3>{{gameObject.category.category}}</h3>
+			{{#if isFreeForAll}}<p>{{ _ "Game" }} {{playedGames}} {{_ "of"}} {{nbr}}</p>{{/if}}
+		</header>
+
+		<div class="category text-center">
+			<div class="animation"></div>		
+			{{#unless isFirstTime}}
+				<p>{{gameObject.category.description}}</p>
+			{{/unless}}
+			<a href="/game/categories" class="moreInfo">{{_ "mas informacion"}}</a>
+		</div>
+		{{#if isFirstTime}}
+			<div class="stats text-center">{{_ "Your Performance for this category is"}} {{stats}}%</div>
+		{{/if}}
+
+		<div id="buttons">
+			<a data-back class="secondary">
+				<span>{{_ "volver a intentar"}}</span>
+			</a>
+			<a data-play class="primary">
+				<span>{{_ "jugar"}}</span>
+			</a>
+		</div>
+	</section>
+	<div class="modal no-credit">
+		<div class="modal-wrapper">
+		    <div class="modal-content">
+	      		{{_ "You ran out of credits!"}}
+	    	</div>		
+		</div>
+  </div>
+</template>

@@ -1,0 +1,36 @@
+<template name="Ranking">
+	<section id="ranking" class="fvp">
+		<nav class="navbar white border">
+			<a href="{{goBack}}"><img src="/img/wss_b12-63b.png" alt=""></a>
+			<h1>{{_ "clasificacion"}}</h1>
+		</nav>
+
+		<div class="padding">
+			<span class="friends">{{_ "amigos"}}</span>
+			<span class="corrects">{{_ "correctas"}}</span>
+		</div>
+
+		<ul class="ranking-list">
+
+
+		    {{#each friend in friendlist}}
+
+			<li>
+				<div class="position">{{indent @index}}</div>
+				<div class="avatar">
+					<img src="{{userAvatar friend.services.facebook.id}}" alt="" class="">
+				</div>
+				
+				<div class="info">
+					<span class="user-name">{{friend.services.facebook.first_name}}<br> {{friend.services.facebook.last_name}}</span>
+				</div>
+
+				<div class="score">{{friend.data.totalWin}}</div>
+			</li>
+
+		    {{/each}}
+
+		</ul>
+
+	</section>
+</template>

@@ -1,0 +1,67 @@
+<template name="PagesLayout">
+
+	<div class="content-nav">
+		{{> yield}}
+	</div>
+
+	<ul class="navbar-nav row">
+		<li class="{{isActiveRoute 'home'}} col-xs-3 columns">
+			{{#linkTo route="home"}}
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 width="114.794px" height="93.778px" viewBox="0 0 114.794 93.778" enable-background="new 0 0 114.794 93.778"
+					 xml:space="preserve">
+				<path fill="#808080" d="M114.794,47.445L97.397,30.048V9.827C97.397,4.399,92.998,0,87.57,0c-5.427,0-9.826,4.399-9.826,9.827v0.569
+					l-3.376-3.377c-9.357-9.357-24.584-9.358-33.941,0L0,47.445h17.397v21.333c0,13.807,11.192,25,25,25h30c13.807,0,25-11.193,25-25
+					V47.445H114.794z"/>
+				</svg>
+			{{/linkTo}}
+		</li>
+
+		<li class="{{isActivePath  '/chat'}} col-xs-3 columns">
+			{{#linkTo route="chat"}}
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 width="115px" height="87px" viewBox="0 0 115 87" enable-background="new 0 0 115 87" xml:space="preserve">
+				<g>
+					<g>
+						<path fill="#808080" d="M75,9c18.195,0,33,14.804,33,33c0,0.115-0.016,0.227-0.017,0.341C112.319,37.846,115,31.74,115,25
+							c0-13.807-11.193-25-25-25H40c-7.875,0-14.89,3.649-19.472,9.34C21.994,9.14,23.479,9,25,9H75z"/>
+					</g>
+					<path fill="#808080" d="M75,17H25C11.192,17,0,28.193,0,42v45l25-20h50c13.807,0,25-11.193,25-25S88.807,17,75,17z M75,51H25
+						c-1.105,0-2-0.895-2-2s0.895-2,2-2h50c1.105,0,2,0.895,2,2S76.105,51,75,51z M75,37H25c-1.105,0-2-0.895-2-2s0.895-2,2-2h50
+						c1.105,0,2,0.895,2,2S76.105,37,75,37z"/>
+				</g>
+				</svg>
+			{{/linkTo}}
+		</li>
+
+		<li class="{{isActiveRoute 'ranking'}} col-xs-3 columns">
+			{{#linkTo route="ranking"}}
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 width="106.795px" height="87.788px" viewBox="0 0 106.795 87.788" enable-background="new 0 0 106.795 87.788"
+					 xml:space="preserve">
+				<g>
+					<path fill="#808080" d="M44.062,17.062C44.062,7.639,36.424,0,27,0C17.577,0,9.938,7.639,9.938,17.062v43.726H0l27,27l27-27h-9.938
+						V17.062z"/>
+					<path fill="#808080" d="M106.795,27l-27-27l-27,27h9.938v43.726c0,9.423,7.639,17.062,17.062,17.062
+						c9.423,0,17.062-7.639,17.062-17.062V27H106.795z"/>
+				</g>
+				</svg>
+			{{/linkTo}}
+		</li>
+
+		<li class="{{isActivePath  '/menu'}} col-xs-3 columns">
+			{{#linkTo route="menu"}}
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 width="100px" height="77.333px" viewBox="0 0 100 77.333" enable-background="new 0 0 100 77.333" xml:space="preserve">
+				<path fill="#808080" d="M75,0H25C11.192,0,0,11.193,0,25v27.333c0,13.807,11.192,25,25,25h50c13.807,0,25-11.193,25-25V25
+					C100,11.193,88.807,0,75,0z M75,61.667H25c-1.105,0-2-0.895-2-2s0.895-2,2-2h50c1.105,0,2,0.895,2,2S76.105,61.667,75,61.667z
+					 M75,47.667H25c-1.105,0-2-0.895-2-2s0.895-2,2-2h50c1.105,0,2,0.895,2,2S76.105,47.667,75,47.667z M75,33.667H25
+					c-1.105,0-2-0.895-2-2s0.895-2,2-2h50c1.105,0,2,0.895,2,2S76.105,33.667,75,33.667z M75,19.667H25c-1.105,0-2-0.895-2-2
+					s0.895-2,2-2h50c1.105,0,2,0.895,2,2S76.105,19.667,75,19.667z"/>
+				</svg>
+			{{/linkTo}}
+		</li>
+		
+	</ul>
+
+</template>

@@ -1,0 +1,69 @@
+[{
+        "_id" : "WKESHhuajhSMCPe4e",
+        "category" : "Máquina del tiempo",
+        "description" : "Preguntas sobre historia y cultura de las diferentes épocas bíblicas.",
+        "icon" : "example2.png",
+        "i18n" : {
+                "en" : {
+                        "category" : "History",
+                        "description" : "Questions about history and culture of the different biblical times."
+                }
+        },
+        "color" : "darkblue"
+},
+{
+        "_id" : "oDwkkYJGaqzgdfrKd",
+        "category" : "GPS",
+        "description" : "Preguntas sobre geografía de las regiones bíblicas –tanto antiguas como su ubicación en el mapa internacional actual.",
+        "icon" : "example2.png",
+        "i18n" : {
+                "en" : {
+                        "category" : "Geography",
+                        "description" : "Questions about the ancient biblical geography of both regions as its location in the current international map."
+                }
+        },
+        "color" : "green"
+},
+{
+        "_id" : "mBrtdXkJwTecruKmZ",
+        "category" : "F2F",
+        "description" : "Preguntas sobre personajes bíblicos y las historias de sus vidas.",
+        "short" : "Cara a cara",
+        "icon" : "example2.png",
+        "i18n" : {
+                "en" : {
+                        "category" : "Characters",
+                        "description" : "Questions about biblical characters and stories of their lives.",
+                        "short" : "Face to face"
+                }
+        },
+        "color" : "orange"
+},
+{
+        "_id" : "afCyMe6EjJoMP5SBY",
+        "category" : "Diccionario",
+        "description" : "Preguntas sobre el significado de cualquier nombre bíblico –ya sea de persona o lugar–; concepto o palabra que se encuentre en la Biblia.",
+        "icon" : "example2.png",
+        "i18n" : {
+                "en" : {
+                        "category" : "Words and Concepts",
+                        "description" : "Questions about the meaning of any biblical name-and either person or place-; concept or word found in the Bible."
+                }
+        },
+        "color" : "purple"
+},
+{
+        "_id" : "d4r68Q8NBbaHJufCy",
+        "category" : "J12",
+        "description" : "Preguntas sobre la vida y hechos de Jesús y sus 12 amigos.",
+        "short" : "Jesús + los 12 discípulos",
+        "icon" : "example2.png",
+        "i18n" : {
+                "en" : {
+                        "category" : "Jesus Lessons",
+                        "description" : "Questions about the life and deeds of Jesus and his 12 friends.",
+                        "short" : "Jesus + 12 disciples"
+                }
+        },
+        "color" : "yellow"
+}]

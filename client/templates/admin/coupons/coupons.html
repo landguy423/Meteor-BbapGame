@@ -1,0 +1,24 @@
+
+<template name="AdminCoupons">
+  <section id="admin" class="fvp">
+    <nav class="navbar white border">
+      <a href="/admin/"><img src="/img/wss_b12-63b.png" alt=""></a>
+      <h1>Admin - Coupons</h1>
+    </nav>
+    <div class="center">
+      <form class="new-coupon">
+        <p style="display:none;">Retry : <input name="retry" type="text" value="0" /></p>
+        <p><label>VV : </label><input name="vv" type="text" value="0" /></p>
+        <p><label>VP : </label><input name="vp" type="text" value="0" /></p>
+        <input type="submit" class="button generate" value="Generate">
+      </form>
+    </div>
+  </section>
+  <div class="modal coupon-confirm">
+    <div class="modal-wrapper">
+        <div class="modal-content">
+            
+        </div>    
+    </div>
+  </div>
+</template>

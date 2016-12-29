@@ -1,0 +1,42 @@
+<template name="Chat">
+	<section id="chat" class="fvp">
+		<nav class="navbar white">
+			<a href="/"><img src="/img/wss_b12-63b.png" alt=""></a>
+			<h1>{{_ "chat"}}</h1>
+		</nav>
+		<div class="search">
+			<div class="input">
+				<input type="text" name="search" value="" placeholder="{{_ "buscar amigos"}}">
+				<a data-search></a>
+			</div>
+		</div>
+
+		<div class="padding">
+
+			<a href="/chat/new" class="btn">{{_ "chat nuevo"}}</a>
+			<ul class="chat-list">
+				{{#each chat in chats}}
+				<li>
+					<a href="/chat/room/{{chat._id}}">
+						<div class="avatar">
+							<img src="{{userAvatar chat.fbId}}" alt="" class="">
+						</div>
+						
+						<div class="info">
+							<span class="user-name">{{chat.fullname}}</span>
+							<span class="status">{{parseDate chat.lastUpdateAt}}</span>
+						</div>
+
+					</a>
+				</li>
+				{{/each}}
+
+			</ul>
+		</div>
+		
+	</section>
+</template>
+
+
+
+

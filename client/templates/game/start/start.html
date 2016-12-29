@@ -1,0 +1,111 @@
+
+
+<template name="GameStart">
+	<section id="game" class="fvp">
+		<header class="stripes">		
+			<p>	
+<!-- 				{{#unless is1vs1}}
+					{{ _ "Game" }} {{playedGames}} {{_ "of"}} {{nbr}}
+				{{else}}
+					{{_ "Pregunta"}}
+				{{/unless}}
+ -->
+
+ {{_ "pregunta de" playedGames nbr}}  
+ 
+			</p>
+		</header>
+
+		<div id="gameInfo">
+
+			<div class="relative">
+				
+				<div class="users {{classType}}">
+					{{#if isInd}}
+					<div class="user">
+						<span class="name first_name">{{currentUser.services.facebook.first_name}}</span>
+						<span class="avatar"><img src="{{userAvatar currentUser.services.facebook.id}}" alt=""></span>
+						<span class="name last_name">{{currentUser.services.facebook.last_name}}</span>
+					</div>
+					{{else}}
+					<div class="user1">
+						<span class="avatar"><img src="{{userAvatar currentUser.services.facebook.id}}" alt=""></span>
+						<span class="name">{{currentUser.services.facebook.first_name}} <br> {{currentUser.services.facebook.last_name}}</span>
+					</div>
+					<span class="vsIndicator">VS</span>
+					<div class="user2">
+						<span class="avatar"><img src="{{userAvatar firstUser.services.facebook.id}}" alt=""></span>
+						<span class="name">{{firstUser.services.facebook.first_name}} <br> {{firstUser.services.facebook.last_name}}</span>
+					</div>
+					{{/if}}
+					{{#if isFree4All}}
+						<div class="user3">
+							<span class="avatar"><img src="{{userAvatar secondUser.services.facebook.id}}" alt=""></span>
+							<span class="name">{{secondUser.services.facebook.first_name}} <br> {{secondUser.services.facebook.last_name}}</span>
+						</div>
+						<span class="vsIndicator">VS</span>
+						<div class="user4">
+							<span class="avatar"><img src="{{userAvatar thirdUser.services.facebook.id}}" alt=""></span>
+							<span class="name">{{thirdUser.services.facebook.first_name}} <br> {{thirdUser.services.facebook.last_name}}</span>
+						</div>
+					{{/if}}
+				</div>
+				<div class="progress {{classType}}">
+					<div class="bar user1">
+						<div class="container">
+							<div>
+								<span style="width: {{percentGame 0}}%;"></span>
+							</div>
+						</div>
+					</div>
+					{{#unless isInd}}
+					<div class="bar user2">
+						<div class="container">
+							<div>
+								<span style="width: {{percentGame 1}}%;"></span>
+							</div>
+						</div>
+					</div>
+					{{/unless}}
+				</div>				
+				<div class="vp {{classType}}">
+					<img src="/img/wss.b12_icons-06.png" alt="">
+					<span>{{currentUser.data.vp}}</span>
+					<a href="#">
+						<img src="/img/plus.png" alt="">
+					</a>
+				</div>	
+
+			</div>
+		</div>
+
+		<div id="animation">
+			<section class="stage">
+			      <figure class="bubble"></figure>
+			</section>
+			<audio id="explode-sound" src="/sounds/ExplosionVitamina.wav"></audio>
+		</div>
+
+		<aside class="game__bottom-menu row align-center">
+			<a href="/game/ranking" class="ranking">
+				<img src="/img/wss_b12-22.png" alt="">
+			</a>
+			<a href="/game/stats" class="stats">
+				<img src="/img/wss_b12-23.png" alt="">
+			</a>
+			<a href="/" class="home">
+				<img src="/img/wss_b12-64.png" alt="">
+			</a>
+		</aside>
+
+	</section>
+	<div class="modal first-time {{firstTime}}">
+		<div class="modal-wrapper">
+		    <div class="modal-content">
+	      		<div class="top-message">{{_ "To start playing"}} :</div>
+	      		<img src="/img/touch-icon.png">
+	      		<div>{{_ "Touch the vitamin to explode:"}}</div>
+	    	</div>		
+		</div>
+  	</div>
+</template>

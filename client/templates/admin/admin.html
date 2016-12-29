@@ -1,0 +1,302 @@
+
+<template name="Admin">
+
+  <section id="admin" class="fvp">
+    <nav class="navbar white border">
+      <a href="/menu"><img src="/img/wss_b12-63b.png" alt=""></a>
+      <h1>Admin</h1>
+    </nav>
+
+    <div class="padding">
+      <ul class="menu-list">
+          
+        <li>
+          <a href="/admin/preguntas">
+            <span class="icon mensajes"></span><span class="line">{{_ "preguntas"}}</span>
+          </a>
+        </li>
+          
+        <li>
+          <a href="/admin/categorias">
+            <span class="icon categorias"></span><span class="line">{{_ "categorias"}}</span>
+          </a>
+        </li> 
+        <li>
+          <a href="/admin/coupons">
+            <span class="icon cupones"></span><span class="line">{{_ "cupones"}}</span>
+          </a>
+        </li> 
+        
+      </ul>
+    </div>
+
+ 
+  </section>
+</template>
+
+<template name="AdminCategorias">
+  <section id="admin" class="fvp">
+    <nav class="navbar white border">
+      <a href="/admin"><img src="/img/wss_b12-63b.png" alt=""></a>
+      <h1>Admin</h1>
+    </nav>
+
+    <div class="padding" style="  margin-top: 6rem; margin-bottom: 3rem; ">
+ 
+      <!-- <a href="#" id="add">AGREGAR CATEGORIA</a> -->
+
+      <table class="pure-table pure-table-striped">
+
+          <tbody>
+
+            {{#each categories}}
+            <tr>
+              <td>{{category}}</td>
+              <td>{{description}}</td>
+              <td>{{#linkTo route='admin.categorias.editar' class='btn btn-primary'}} {{_ "editar"}} {{/linkTo}} <!-- <br> <a href="#" data-id="{{_id}}" class="borrar">borrar</a>  --></td>
+            </tr>
+            {{/each}}
+
+          </tbody>  
+      </table>
+
+    </div> 
+  </section>
+</template>
+
+<template name="AdminCategoriasEditar">
+  <section id="admin" class="fvp">
+    <nav class="navbar white border">
+      <a href="/admin/categorias"><img src="/img/wss_b12-63b.png" alt=""></a>
+      <h1>Admin</h1>
+    </nav>
+
+    <h3>{{_ "editar"}} {{_ "categoria"}} : {{this.es.category}}</h3>
+
+    <form action="" class="form1">
+
+      <div class="row">
+        <div class="columns small-4"><label>{{_ "icono"}}</label></div>
+        <div class="columns small-8"><input type="text" name="category.icon"  value="{{ this.es.icon}}"></div>
+      </div>
+      <div class="row">
+        <div class="columns small-4"><label>{{_ "color"}}</label></div>
+        <div class="columns small-8"><input type="text" name="category.color"  value="{{ this.es.color}}"></div>
+      </div>
+
+      <h3 style="margin-left: 4rem;">ES</h3>
+
+      <div class="row">
+        <div class="columns small-4"><label>Categoria</label></div>
+        <div class="columns small-8"><input type="text" name="category.es.category" value="{{ this.es.category}}"></div>
+      </div>
+      <div class="row">
+        <div class="columns small-4"><label>Descripción</label></div>
+        <div class="columns small-8"><textarea name="category.es.description" cols="30" rows="10">{{ this.es.description}}</textarea></div>
+      </div>
+      <div class="row">
+        <div class="columns small-4"><label>Aclaración</label></div>
+        <div class="columns small-8"><input type="text" name="category.es.short"  value="{{ this.es.short}}"></div>
+      </div>
+
+      <h3 style="margin-left: 4rem;">EN:</h3>
+
+      <div class="row">
+        <div class="columns small-4"><label>Category</label></div>
+        <div class="columns small-8"><input type="text" name="category.en.category" value="{{ this.en.category}}"></div>
+      </div>
+      <div class="row">
+        <div class="columns small-4"><label>Description</label></div>
+        <div class="columns small-8"><textarea name="category.en.description" cols="30" rows="10">{{ this.en.description}}</textarea></div>
+      </div>
+      <div class="row">
+        <div class="columns small-4"><label>Clarification</label></div>
+        <div class="columns small-8"><input type="text" name="category.en.short"  value="{{ this.en.short}}"></div>
+      </div>
+
+      <div class="row">
+      <div class="columns small-12 save">
+        <button type="submit" id="submit">{{_ "guardar"}}</button>
+      </div>
+      </div>
+      
+      
+    </form>
+
+  </section>
+</template>
+
+
+
+<template name="AdminPreguntas">
+  <section id="admin" class="fvp">
+    <nav class="navbar white border">
+      <a href="/admin"><img src="/img/wss_b12-63b.png" alt=""></a>
+      <h1>Admin</h1>
+    </nav>
+
+    <div class="padding" style="margin: 6rem 0;">
+
+      <div style="overflow: scroll">
+        <table class="pure-table pure-table-striped" style="width: 200%;">
+            <thead>
+              <tr>
+                <th>{{_ "estado"}}</th>
+                <th>{{_ "pregunta"}}</th>
+                <!-- <th>{{_ "respuestas"}}</th> -->
+                <th>{{_ "categoria"}}</th>
+                <!-- <th>{{_ "autor"}}</th> -->
+                <th>{{_ "editar"}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each questions}}
+              <tr>
+                <td>{{getQuestionStatus status}}</td>
+                <td>{{question}}</td>
+                <!-- <td>
+                  <ul>
+                    <li>{{answers.correcta}}</li>
+                    <li>{{answers.incorrecta1}}</li>
+                    <li>{{answers.incorrecta2}}</li>
+                    <li>{{answers.incorrecta3}}</li>
+                  </ul>
+                </td> -->
+                <td>{{getCategoryName category}}</td>
+                <!-- <td>{{getUserName author}}</td> -->
+                
+                <td>{{#linkTo route='admin.preguntas.editar' class='btn'}} {{_ "editar"}} {{/linkTo}}</td>
+              </tr>
+              {{/each}}
+            </tbody>  
+        </table>
+      </div>
+
+    </div> 
+
+  </section>
+</template>
+
+<template name="AdminPreguntasEditar">
+  <section id="admin" class="fvp">
+    <nav class="navbar white border">
+      <a href="/admin/preguntas"><img src="/img/wss_b12-63b.png" alt=""></a>
+      <h1>Admin</h1>
+    </nav>
+
+    <h3>{{_ "editar"}} {{_ "pregunta"}} :</h3>
+
+    <form action="" class="form1">
+
+      <div class="row">
+        <div class="columns small-4"><label>{{_ "categoria"}}</label></div>
+        <div class="columns small-8">
+
+          <div class="custom-select">
+            <span class="selection">{{getCategoryName this.es.category}}</span>
+            <div class="select"></div>
+            <ul class="options hide">
+            {{#each categories}}
+              <li data-id="{{_id}}">{{category}}</li>
+            {{/each}}
+            </ul>
+            <input type="hidden" name="question.category"   value="{{ this.es.category}}">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="columns small-4"><label>{{_ "estado"}}</label></div>
+        <div class="columns small-8">
+          <div class="custom-select">
+            <span class="selection">{{getQuestionStatus this.es.status}}</span>
+            <div class="select"></div>
+            <ul class="options hide">
+              <li data-id="0">{{_ "pendiente"}}</li>
+              <li data-id="1">{{_ "publicada"}}</li>
+              <li data-id="2">{{_ "rechazada"}}</li>
+            </ul>
+            <input type="hidden" name="question.status"  value="{{ this.es.status}}">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="columns small-4"><label>{{_ "nivel"}}</label></div>
+        <div class="columns small-8">
+          <div class="custom-select">
+            <span class="selection">{{getQuestionLevel this.es.level}}</span>
+            <div class="select"></div>
+            <ul class="options hide">
+              <li data-id="0">{{_ "facil"}}</li>
+              <li data-id="1">{{_ "medio"}}</li>
+              <li data-id="2">{{_ "dificil"}}</li>
+            </ul>
+            <input type="hidden" name="question.level" value="{{ this.es.level}}">
+          </div>
+        </div>
+      </div>
+
+
+      <h3 style="margin-left: 4rem;">ES</h3>
+
+      <div class="row">
+        <div class="columns small-4"><label>Pregunta</label></div>
+        <div class="columns small-8"><input type="text" name="question.es.question" value="{{ this.es.question}}"></div>
+      </div>
+
+      <div class="row">
+        <div class="columns small-4"><label>Correcta</label></div>
+        <div class="columns small-8 correcta"><input type="text" name="question.es.answers.correcta" value="{{ this.es.answers.correcta}}"></div>
+      </div>
+      <div class="row">
+        <div class="columns small-4"><label>Incorrecta</label></div>
+        <div class="columns small-8 incorrecta"><input type="text" name="question.es.answers.incorrecta1" value="{{ this.es.answers.incorrecta1}}"></div>
+      </div>
+      <div class="row">
+        <div class="columns small-4"><label>Incorrecta2</label></div>
+        <div class="columns small-8 incorrecta"><input type="text" name="question.es.answers.incorrecta2" value="{{ this.es.answers.incorrecta2}}"></div>
+      </div>
+      <div class="row">
+        <div class="columns small-4"><label>Incorrecta3</label></div>
+        <div class="columns small-8 incorrecta"><input type="text" name="question.es.answers.incorrecta3" value="{{ this.es.answers.incorrecta3}}"></div>
+      </div>
+
+      <h3 style="margin-left: 4rem;">EN:</h3>
+
+      <div class="row">
+        <div class="columns small-4"><label>Question</label></div>
+        <div class="columns small-8"><input type="text" name="question.en.question" id="correcta" value="{{ this.en.question}}"></div>
+      </div>
+
+      <div class="row">
+        <div class="columns small-4"><label>Right</label></div>
+        <div class="columns small-8 correcta"><input type="text" name="question.en.answers.correcta" value="{{ this.en.answers.correcta}}"></div>
+      </div>
+      <div class="row">
+        <div class="columns small-4"><label>Wrong</label></div>
+        <div class="columns small-8 incorrecta"><input type="text" name="question.en.answers.incorrecta1" value="{{ this.en.answers.incorrecta1}}"></div>
+      </div>
+      <div class="row">
+        <div class="columns small-4"><label>Wrong2</label></div>
+        <div class="columns small-8 incorrecta"><input type="text" name="question.en.answers.incorrecta2" value="{{ this.en.answers.incorrecta2}}"></div>
+      </div>
+      <div class="row">
+        <div class="columns small-4"><label>Wrong3</label></div>
+        <div class="columns small-8 incorrecta"><input type="text" name="question.en.answers.incorrecta3" value="{{ this.en.answers.incorrecta3}}"></div>
+      </div>
+
+      <div class="row">
+      <div class="columns small-12 save">
+        <button type="submit" id="submit">{{_ "guardar"}}</button>
+      </div>
+      </div>
+      
+      
+    </form>
+
+  </section>
+</template>
+

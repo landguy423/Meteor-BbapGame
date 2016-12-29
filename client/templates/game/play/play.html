@@ -1,0 +1,112 @@
+
+<template name="GamePlay">
+	<section id="play" class="fvp">
+		<header class="{{gameObject.category.color}}">	
+
+			<div class="container">
+				<audio id="win-sound" src="/sounds/Correcto_v1.wav"></audio>
+				<audio id="lose-sound" src="/sounds/Incorrecto_V1.wav"></audio>
+
+				<div class="info">
+					<span class="vv">{{currentUser.data.vv}}</span>
+					<span class="vp">{{currentUser.data.vp}}</span>
+					<h1>{{gameObject.category.category}}</h1>
+
+					<div id="status">
+						<div id="timer">
+							<span>{{timeLeft}}</span>
+							<div class="slice">
+								<div class="pie">
+									<div class="aux"></div>
+								</div>
+								<div class="fill"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="question">
+					<p>
+					{{gameObject.question.question}}
+					</p>
+				</div>
+
+			</div>
+
+			<div id="timeout" style="width: {{timeLeftInPercent}}%"></div>
+			
+		</header>
+		
+		<ul id="answers">
+
+
+		        {{#each answer in gameObject.question.answers}}
+					<li class="{{answer._id}}" data-answer="{{answer._id}}">{{answer.answer}}</li>
+		        {{/each}}
+
+		</ul>
+
+
+		<aside class="row">
+			<div class="column small-3">
+					<a data-action="clue">
+						<span>{{_ "pista"}}</span>
+						<div class="img">
+							<img src="/img/wss_b12-12.png" alt="">
+							<div class="count">
+								<div class="center">
+									<span>2</span>
+								</div>
+							</div>
+						</div>
+					</a>
+			</div>
+			<div class="column small-3">
+					<a data-action="answer">
+						<span>{{_ "dar la respuesta"}}</span>
+						<div class="img">
+							<img src="/img/wss_b12-13.png" alt="">
+							<div class="count">
+								<div class="center">
+									<span>3</span>
+								</div>
+							</div>
+						</div>
+					</a>
+			</div>
+			<div class="column small-3">
+					<a data-action="time">
+						<span>{{_ "mas tiempo"}}</span>
+						<div class="img">
+							<img src="/img/wss_b12-14.png" alt="">
+							<div class="count">
+								<div class="center">
+									<span>1</span>
+								</div>								
+							</div>
+						</div>
+					</a>
+			</div>
+			<div class="column small-3">
+					<a data-action="retry">
+						<span>{{_ "saltear"}}</span>
+						<div class="img">
+							<img src="/img/wss_b12-15.png" alt="">
+							<div class="count">
+								<div class="center">
+									<span>2</span>
+								</div>								
+							</div>
+						</div>
+					</a>
+			</div>
+		</aside>
+
+	</section>
+	<div class="modal no-credit">
+		<div class="modal-wrapper">
+		    <div class="modal-content">
+	      		{{_ "You ran out of credits!"}}
+	    	</div>		
+		</div>
+  	</div>
+</template>

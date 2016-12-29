@@ -1,0 +1,24 @@
+.new-coupon {
+	text-align: center;
+	label {
+		display: block;
+	    text-align: center;
+	    font-size: 2rem;
+	}
+	input[type=text] {
+		border: 0px none;
+		width: 80%;
+		display: block;
+		margin: 3rem auto;
+		background: #f2f2f2;
+		color: #808080;
+		text-align: center;
+		padding: 1.5rem;
+		line-height: 1;
+		font-size: 2rem;
+
+		&::placeholder{
+			color: #808080;
+		}
+	}
+}

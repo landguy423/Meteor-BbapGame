@@ -1,0 +1,32 @@
+
+<template name="ChatNew">
+	<section id="chat" class="fvp">
+		<nav class="navbar white">
+			<a href="/chat"><img src="/img/wss_b12-63b.png" alt=""></a>
+			<h1>{{_ "chat nuevo"}}</h1>
+		</nav>
+		<div class="search">
+			<div class="input">
+				<input type="text" name="search" value="" placeholder="{{_ "buscar amigos"}}">
+				<a data-search></a>
+			</div>
+		</div>
+		<div class="fb">
+			<span>Amigos de Facebook.</span>
+			<div class="logo"><img src="/img/fb_logo.png" alt=""></div>
+		</div>
+		
+
+	  <div class="row user-avatar-list">
+		{{#each friend in friendsList}}
+	        <div class="column small-3" >
+				<a data-id={{friend.id}} data-name={{friend.name}}>
+					<span class="avatar"><img src="{{userAvatar friend.id}}" alt=""></span>
+					<span class="name">{{friend.name}}</span>
+				</a>
+	        </div>
+		{{/each}}
+      </div>
+
+	</section>
+</template>

@@ -1,0 +1,100 @@
+
+<template name="GameFriends">
+	<section id="game" class="fvp">
+		<header class="stripes">		
+			<nav class="navbar">
+				<a href="/game"><img src="/img/wss_b12-63.png" alt=""></a>
+				<h1>{{_ "seleccionar amigos"}}</h1>
+			</nav>
+			<div class="search">
+				<div class="input">
+					<input type="text" name="search" value="" placeholder="{{_ "buscar amigos"}}">
+					<a data-search></a>
+				</div>
+			</div>
+		</header>
+		<div class="selected">
+			
+
+		<div class="row user-avatar-list align-center" id="players">
+			{{#if friendOne}}
+		        <div class="column small-4 friend">
+					<a data-remove data-id="0">
+						<span class="avatar"><img src="{{userAvatar friendOne.id}}" alt=""></span>
+						<span class="name">{{friendOne.name}}</span>
+					</a>
+		        </div>
+			{{else}}
+				<div class="column small-4 friend">
+					<a>
+						<span class="avatar"><img src="/img/wss_select.png" alt=""></span>
+						<span class="name">{{_ "amigo"}} 1</span>
+					</a>
+		        </div>
+			{{/if}}
+
+
+	        {{#if players }}
+
+				{{#if friendTwo}}
+			        <div class="column small-4 friend">
+						<a data-remove data-id="1">
+							<span class="avatar"><img src="{{userAvatar friendTwo.id}}" alt=""></span>
+							<span class="name">{{friendTwo.name}}</span>
+						</a>
+			        </div>
+				{{else}}
+					<div class="column small-4 friend">
+						<a>
+							<span class="avatar"><img src="/img/wss_select.png" alt=""></span>
+							<span class="name">{{_ "amigo"}} 2</span>
+						</a>
+			        </div>
+				{{/if}}
+
+				{{#if friendThree}}
+			        <div class="column small-4 friend">
+						<a data-remove data-id="2">
+							<span class="avatar"><img src="{{userAvatar friendThree.id}}" alt=""></span>
+							<span class="name">{{friendThree.name}}</span>
+						</a>
+			        </div>
+				{{else}}
+					<div class="column small-4 friend">
+						<a>
+							<span class="avatar"><img src="/img/wss_select.png" alt=""></span>
+							<span class="name">{{_ "amigo"}} 3</span>
+						</a>
+			        </div>
+				{{/if}}
+
+
+			{{/if}}
+
+	      </div>
+
+			<a href="/game" class="accept {{friendsReady}}">{{_ "aceptar"}}</a>
+		</div>
+		
+	  <div class="row user-avatar-list" id="user-list">
+		{{#each friend in friendsList}}
+	        <div class="column small-3" >
+				<a data-fb-id={{friend.id}} data-fb-name={{friend.name}}>
+					<span class="avatar"><img src="{{userAvatar friend.id}}" alt=""></span>
+					<span class="name">{{friend.name}}</span>
+				</a>
+	        </div>
+		{{else}}
+			{{_ "No friends" }}
+		{{/each}}
+
+      </div>
+	</section>
+	<div class="modal has-game">
+		<div class="modal-wrapper">
+		    <div class="modal-content">
+	      		{{_ "Already a game in progress !"}}
+	    	</div>		
+		</div>
+  	</div>
+</template>
